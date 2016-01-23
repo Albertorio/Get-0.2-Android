@@ -36,6 +36,11 @@
             android:label="@string/title_activity_set_up_profile"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".SelectRegion"
+            android:label="@string/title_activity_select_region"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

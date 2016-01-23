@@ -37,8 +37,8 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name=".SelectRegion"
-            android:label="@string/title_activity_select_region"
+            android:name=".EventList"
+            android:label="@string/title_activity_event_list"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>

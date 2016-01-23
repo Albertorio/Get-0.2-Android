@@ -21,8 +21,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -180,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
             usernameStr = Username.getText().toString();
             emailStr = Email.getText().toString();
             passwordStr = password.getText().toString();
-            // confirmPassStr = ConfirmPass.getText().toString();
+            confirmPassStr = ConfirmPass.getText().toString();
 
             ParseUser user = new ParseUser();
             user.setUsername(usernameStr);
@@ -210,13 +212,57 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static class LogInFragment extends Fragment{
+        EditText EmailOrUsername, Password;
+        TextView ForgotPass;
+        String emailOrUserStr, passStr;
+        Button login;
+
         public  LogInFragment(){
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_log_in, container, false);
+            EmailOrUsername = (EditText)rootView.findViewById(R.id.SignInEmailOrUsernameEditText);
+            Password = (EditText)rootView.findViewById(R.id.SignInPasswordEditText);
+            ForgotPass = (TextView)rootView.findViewById(R.id.SignInForgotPasswordTextView);
+            login = (Button)rootView.findViewById(R.id.LogInButton);
 
-            return inflater.inflate(R.layout.fragment_log_in, container, false);
+
+            login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finishLogIn();
+                }
+            });
+
+            return rootView;
+        }
+
+        public void finishLogIn(){
+            emailOrUserStr = EmailOrUsername.getText().toString();
+            passStr = Password.getText().toString();
+
+            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setMessage("Logging in");
+            progressDialog.show();
+
+            ParseUser.logInInBackground(emailOrUserStr, passStr, new LogInCallback() {
+                @Override
+                public void done(ParseUser user, ParseException e) {
+
+                    if (user != null) {
+                        Toast.makeText(getActivity(), "log in successful", Toast.LENGTH_LONG).show();
+                        Intent eventlist = new Intent(getActivity(), EventList.class);
+                        getActivity().startActivity(eventlist);
+                        getActivity().finish();
+
+                    } else {
+                        Toast.makeText(getActivity(), "log in failed", Toast.LENGTH_LONG).show();
+                        progressDialog.dismiss();
+                    }
+                }
+            });
         }
     }
 

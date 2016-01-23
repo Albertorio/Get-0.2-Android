@@ -8,4 +8,8 @@
     <string name="title_activity_splash">Splash</string>
     <string name="title_activity_set_up_profile">SetUpProfile</string>
     <string name="title_activity_select_region">SelectRegion</string>
+    <string name="title_activity_event_list">EventList</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

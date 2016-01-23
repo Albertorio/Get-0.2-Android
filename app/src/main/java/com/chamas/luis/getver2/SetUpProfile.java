@@ -148,7 +148,7 @@ public class SetUpProfile extends AppCompatActivity {
             public void done(ParseException e) {
                 if (e == null) {
                     Toast.makeText(SetUpProfile.this, "setup success", Toast.LENGTH_LONG).show();
-                    Intent region = new Intent(SetUpProfile.this, SelectRegion.class);
+                    Intent region = new Intent(SetUpProfile.this, EventList.class);
                     SetUpProfile.this.startActivity(region);
                     SetUpProfile.this.finish();
                 } else {

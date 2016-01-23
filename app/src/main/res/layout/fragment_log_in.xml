@@ -1,13 +1,54 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:paddingBottom="90dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    >
 
-    <TextView
-        android:id="@+id/textView"
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/SignInEmailOrUsernameEditText"
+        android:hint="email or username"
+        android:textAlignment="center"
+        android:ems="10"
         android:layout_centerVertical="true"
-        android:text="Log in"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/SignInPasswordEditText"
+        android:ems="10"
+        android:hint="password"
+        android:textAlignment="center"
+        android:inputType="textPassword"
+        android:layout_below="@+id/SignInEmailOrUsernameEditText"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Forgot password?"
+        android:id="@+id/SignInForgotPasswordTextView"
+        android:layout_below="@+id/SignInPasswordEditText"
+        android:layout_alignRight="@+id/SignInPasswordEditText"
+        android:layout_alignEnd="@+id/SignInPasswordEditText"
+        android:paddingTop="5dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log In"
+        android:id="@+id/LogInButton"
+        android:layout_below="@+id/SignInForgotPasswordTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
+        android:onClick="finishLogIn"/>
+
+
+
 </RelativeLayout>

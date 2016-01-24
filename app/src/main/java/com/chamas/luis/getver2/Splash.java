@@ -27,18 +27,16 @@ public class Splash extends AppCompatActivity {
             public void run() {
 
                 ParseUser currentUser = ParseUser.getCurrentUser();
-//                if (currentUser != null) {
-//                    Intent eventIntent = new Intent(Splash.this, MainActivity.class);
-//                    Splash.this.startActivity(eventIntent);
-//                    Splash.this.finish();
-//                } else {
-//                    Intent mainIntent = new Intent(Splash.this, MainActivity.class);
-//                    Splash.this.startActivity(mainIntent);
-//                    Splash.this.finish();
-//                }
-                Intent mainIntent = new Intent(Splash.this, MainActivity.class);
-                Splash.this.startActivity(mainIntent);
-                Splash.this.finish();
+                if (currentUser != null) {
+                    Intent eventIntent = new Intent(Splash.this, EventList.class);
+                    Splash.this.startActivity(eventIntent);
+                    Splash.this.finish();
+                } else {
+                    Intent mainIntent = new Intent(Splash.this, MainActivity.class);
+                    Splash.this.startActivity(mainIntent);
+                    Splash.this.finish();
+                }
+
             }
         }, 2000);
     }

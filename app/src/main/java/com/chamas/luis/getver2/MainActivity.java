@@ -2,6 +2,7 @@ package com.chamas.luis.getver2;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -224,9 +225,14 @@ public class MainActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_log_in, container, false);
             EmailOrUsername = (EditText)rootView.findViewById(R.id.SignInEmailOrUsernameEditText);
+//            EmailOrUsername.setHintTextColor(getResources().getColor(R.color.white));
             Password = (EditText)rootView.findViewById(R.id.SignInPasswordEditText);
-            ForgotPass = (TextView)rootView.findViewById(R.id.SignInForgotPasswordTextView);
+//            Password.setHintTextColor(getResources().getColor(R.color.white));
+//            ForgotPass = (TextView)rootView.findViewById(R.id.SignInForgotPasswordTextView);
             login = (Button)rootView.findViewById(R.id.LogInButton);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                rootView.setBackground(getResources().getDrawable(R.drawable.prdoor));
+            }
 
 
             login.setOnClickListener(new View.OnClickListener() {
@@ -259,6 +265,7 @@ public class MainActivity extends AppCompatActivity {
 
                     } else {
                         Toast.makeText(getActivity(), "log in failed", Toast.LENGTH_LONG).show();
+                        Log.d("parse error", e.toString());
                         progressDialog.dismiss();
                     }
                 }

@@ -1,54 +1,140 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="bottom"
     android:paddingBottom="90dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    >
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:weightSum="1">
 
-    <EditText
+    <!-- Login progress -->
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/SignInEmailOrUsernameEditText"
-        android:hint="email or username"
-        android:textAlignment="center"
-        android:ems="10"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
 
-    <EditText
-        android:layout_width="wrap_content"
+    <!--<EditText-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/SignInEmailOrUsernameEditText"-->
+        <!--android:hint="email or username"-->
+        <!--android:textAlignment="center"-->
+        <!--android:ems="10"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_centerHorizontal="true" />-->
+
+    <!--<EditText-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/SignInPasswordEditText"-->
+        <!--android:ems="10"-->
+        <!--android:hint="password"-->
+        <!--android:textAlignment="center"-->
+        <!--android:inputType="textPassword"-->
+        <!--android:layout_below="@+id/SignInEmailOrUsernameEditText"-->
+        <!--android:layout_centerHorizontal="true" />-->
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
+        <!--android:text="Forgot password?"-->
+        <!--android:id="@+id/SignInForgotPasswordTextView"-->
+        <!--android:layout_below="@+id/SignInPasswordEditText"-->
+        <!--android:layout_alignRight="@+id/SignInPasswordEditText"-->
+        <!--android:layout_alignEnd="@+id/SignInPasswordEditText"-->
+        <!--android:paddingTop="5dp"/>-->
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Log In"-->
+        <!--android:id="@+id/LogInButton"-->
+        <!--android:layout_below="@+id/SignInForgotPasswordTextView"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="46dp"-->
+        <!--android:onClick="finishLogIn"/>-->
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/SignInPasswordEditText"
-        android:ems="10"
-        android:hint="password"
-        android:textAlignment="center"
-        android:inputType="textPassword"
-        android:layout_below="@+id/SignInEmailOrUsernameEditText"
-        android:layout_centerHorizontal="true" />
+        android:layout_weight=".02">
 
-    <TextView
-        android:layout_width="wrap_content"
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/email_login_form"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Forgot password?"
-        android:id="@+id/SignInForgotPasswordTextView"
-        android:layout_below="@+id/SignInPasswordEditText"
-        android:layout_alignRight="@+id/SignInPasswordEditText"
-        android:layout_alignEnd="@+id/SignInPasswordEditText"
-        android:paddingTop="5dp"/>
+        android:orientation="vertical">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log In"
-        android:id="@+id/LogInButton"
-        android:layout_below="@+id/SignInForgotPasswordTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp"
-        android:onClick="finishLogIn"/>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/SignInEmailOrUsernameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/SignInPasswordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:imeActionId="@+id/login"
+                android:imeActionLabel="@string/action_sign_in_short"
+                android:imeOptions="actionUnspecified"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <!--<android.support.v7.widget.AppCompatButton-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Log in"-->
+            <!--android:id="@+id/LogInButton"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textStyle="bold"-->
+            <!--/>-->
+
+        <Button
+            android:id="@+id/LogInButton"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Log in"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"/>
+
+    </LinearLayout>
 
 
-
-</RelativeLayout>
+</LinearLayout>

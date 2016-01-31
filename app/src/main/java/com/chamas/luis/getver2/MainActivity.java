@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
             Username = (EditText)rootview.findViewById(R.id.SignUpUsernameEditText);
             Email = (EditText)rootview.findViewById(R.id.SignUpEmailEditText);
             password = (EditText)rootview.findViewById(R.id.SignUpPasswordEditText);
-            ConfirmPass = (EditText)rootview.findViewById(R.id.SignUpConfirmPasswordEditText);
+//            ConfirmPass = (EditText)rootview.findViewById(R.id.SignUpConfirmPasswordEditText);
             SignupButton = (Button)rootview.findViewById(R.id.SignUpButton);
 
 
@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
             usernameStr = Username.getText().toString();
             emailStr = Email.getText().toString();
             passwordStr = password.getText().toString();
-            confirmPassStr = ConfirmPass.getText().toString();
+//            confirmPassStr = ConfirmPass.getText().toString();
 
             ParseUser user = new ParseUser();
             user.setUsername(usernameStr);

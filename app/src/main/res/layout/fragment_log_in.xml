@@ -7,7 +7,16 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:weightSum="1">
+    android:weightSum="1"
+>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="212dp"
+        android:layout_height="147dp"
+        android:src="@drawable/getloginfinish"
+        android:layout_gravity="center"
+        android:layout_marginBottom="150dp"
+        />
 
     <!-- Login progress -->
     <ProgressBar
@@ -63,15 +72,18 @@
         android:id="@+id/login_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight=".02">
+        android:layout_weight=".02"
+        android:background="@drawable/layout_bg">
 
-    </ScrollView>
 
     <LinearLayout
         android:id="@+id/email_login_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
+
+
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -85,6 +97,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_email"
                 android:inputType="textEmailAddress"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textColorHint="@color/white"
@@ -101,6 +115,8 @@
                 android:id="@+id/SignInPasswordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:hint="Password"
                 android:imeActionId="@+id/login"
                 android:imeActionLabel="@string/action_sign_in_short"
@@ -125,16 +141,20 @@
 
         <Button
             android:id="@+id/LogInButton"
-            style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="16dp"
             android:text="Log in"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:background="@color/colorPrimary"/>
+            android:background="@drawable/layout_btn"
+            />
 
     </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

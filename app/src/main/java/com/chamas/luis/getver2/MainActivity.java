@@ -167,6 +167,9 @@ public class MainActivity extends AppCompatActivity {
 //            ConfirmPass = (EditText)rootview.findViewById(R.id.SignUpConfirmPasswordEditText);
             SignupButton = (Button)rootview.findViewById(R.id.SignUpButton);
 
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                rootview.setBackground(getResources().getDrawable(R.drawable.sanjuanroad_darker_480x800));
+            }
 
             SignupButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -231,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
 //            ForgotPass = (TextView)rootView.findViewById(R.id.SignInForgotPasswordTextView);
             login = (Button)rootView.findViewById(R.id.LogInButton);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                rootView.setBackground(getResources().getDrawable(R.drawable.prdoor));
+                rootView.setBackground(getResources().getDrawable(R.drawable.prdoor_480x800));
             }
 
 

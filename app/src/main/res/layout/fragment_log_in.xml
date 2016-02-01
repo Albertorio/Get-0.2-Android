@@ -1,22 +1,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="bottom"
-    android:paddingBottom="90dp"
+    android:gravity="center"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:orientation="vertical"
-    android:layout_gravity="center"
     android:weightSum="1"
 >
-
-    <pl.droidsonroids.gif.GifImageView
-        android:layout_width="212dp"
-        android:layout_height="147dp"
-        android:src="@drawable/getloginfinish"
-        android:layout_gravity="center"
-        android:layout_marginBottom="150dp"
-        />
 
     <!-- Login progress -->
     <ProgressBar
@@ -147,6 +137,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="16dp"
+            android:elevation="5dp"
             android:text="Log in"
             android:textStyle="bold"
             android:textColor="@color/white"

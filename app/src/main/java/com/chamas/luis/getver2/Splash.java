@@ -12,12 +12,14 @@ import android.view.View;
 import com.parse.Parse;
 import com.parse.ParseUser;
 
+
 public class Splash extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
 
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, "T4mKLSOGaa3dLavmKuvMlLvuXClmAdHxj295mOzc", "6KjuRBv415crv76Go4vqQyUD9Nt7pbCBS5CrLvQB");

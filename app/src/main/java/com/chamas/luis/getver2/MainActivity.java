@@ -25,10 +25,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.LogInCallback;
+
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
+
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     LogInFragment logInFragment = new LogInFragment();
@@ -179,6 +181,8 @@ public class MainActivity extends AppCompatActivity {
             });
 
 
+
+
             return rootview;
         }
 
@@ -188,14 +192,38 @@ public class MainActivity extends AppCompatActivity {
             passwordStr = password.getText().toString();
 //            confirmPassStr = ConfirmPass.getText().toString();
 
+
+            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setMessage("Signing up");
+            progressDialog.show();
+
+//            Firebase myFirebaseRef = new Firebase("https://getpr.firebaseio.com/");
+//
+//            myFirebaseRef.createUser(emailStr, passwordStr, new Firebase.ValueResultHandler<Map<String, Object>>() {
+//                @Override
+//                public void onSuccess(Map<String, Object> result) {
+//                    System.out.println("Successfully created user account with uid: " + result.get("uid"));
+//                    Toast.makeText(getActivity(), "sign up successful", Toast.LENGTH_LONG).show();
+//                    Intent setupProfile = new Intent(getActivity(), SetUpProfile.class);
+//                    getActivity().startActivity(setupProfile);
+//                    getActivity().finish();
+//
+//                }
+//
+//                @Override
+//                public void onError(FirebaseError firebaseError) {
+//                    // there was an error
+//                    Toast.makeText(getActivity(), "failed", Toast.LENGTH_LONG).show();
+//                    Log.d("firebaseError error", firebaseError.toString());
+//                    progressDialog.dismiss();
+//                }
+//            });
+
             ParseUser user = new ParseUser();
             user.setUsername(usernameStr);
             user.setPassword(passwordStr);
             user.setEmail(emailStr);
 
-            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setMessage("Signing up");
-            progressDialog.show();
 
             user.signUpInBackground(new SignUpCallback() {
                 @Override
@@ -223,6 +251,8 @@ public class MainActivity extends AppCompatActivity {
 
         public  LogInFragment(){
         }
+
+        
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -256,23 +286,23 @@ public class MainActivity extends AppCompatActivity {
             progressDialog.setMessage("Logging in");
             progressDialog.show();
 
-            ParseUser.logInInBackground(emailOrUserStr, passStr, new LogInCallback() {
-                @Override
-                public void done(ParseUser user, ParseException e) {
-
-                    if (user != null) {
-                        Toast.makeText(getActivity(), "log in successful", Toast.LENGTH_LONG).show();
-                        Intent eventlist = new Intent(getActivity(), EventList.class);
-                        getActivity().startActivity(eventlist);
-                        getActivity().finish();
-
-                    } else {
-                        Toast.makeText(getActivity(), "log in failed", Toast.LENGTH_LONG).show();
-                        Log.d("parse error", e.toString());
-                        progressDialog.dismiss();
-                    }
-                }
-            });
+//            ParseUser.logInInBackground(emailOrUserStr, passStr, new LogInCallback() {
+//                @Override
+//                public void done(ParseUser user, ParseException e) {
+//
+//                    if (user != null) {
+//                        Toast.makeText(getActivity(), "log in successful", Toast.LENGTH_LONG).show();
+//                        Intent eventlist = new Intent(getActivity(), EventList.class);
+//                        getActivity().startActivity(eventlist);
+//                        getActivity().finish();
+//
+//                    } else {
+//                        Toast.makeText(getActivity(), "log in failed", Toast.LENGTH_LONG).show();
+//                        Log.d("parse error", e.toString());
+//                        progressDialog.dismiss();
+//                    }
+//                }
+//            });
         }
     }
 

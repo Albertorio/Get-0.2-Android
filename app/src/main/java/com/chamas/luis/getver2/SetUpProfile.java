@@ -25,6 +25,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
@@ -61,7 +62,7 @@ public class SetUpProfile extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
         sexSelect.setAdapter(adapter);
 
-        UserName.setText(parseUser.getUsername().toString());
+//        UserName.setText(parseUser.getUsername().toString());
 
     }
 
